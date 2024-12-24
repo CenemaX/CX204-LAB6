@@ -1,27 +1,20 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 12/24/2024 03:42:27 AM
-// Design Name: 
-// Module Name: inst_mem
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 
 
 module inst_mem(
-
+    input logic [31:0]address,
+    output logic [31:0]instruction
     );
+    
+    logic [31:0]memory[0:255];
+    
+    
+    initial $readmemb("/home/cenema/Desktop/Xilinx_Projects/CX-204/CX-204-lab6/CX204-LAB6/machine.bin",memory);
+    
+    assign instruction=memory[address[31:2]];
+    
 endmodule
-hello amr :)
+
+
+
