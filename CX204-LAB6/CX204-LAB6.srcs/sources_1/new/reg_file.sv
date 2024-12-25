@@ -15,7 +15,7 @@ module reg_file(
     
     logic [31:0]register[31:0];
     
-    assign register[0]=32'h0000;
+    
     
     
     
@@ -32,6 +32,7 @@ module reg_file(
                 
         rdata1<=register[raddr1];
         rdata2<=register[raddr2];
+        register[0]<=32'h0000;
     end
             
 endmodule
