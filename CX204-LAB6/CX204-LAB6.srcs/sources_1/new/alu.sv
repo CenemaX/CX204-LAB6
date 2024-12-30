@@ -28,7 +28,7 @@ module alu(
             default: alu_result=0;
         endcase
         
-        zero <= op2==32'h0000;
+        zero = alu_result==32'h0000;
     end 
                 
 endmodule
