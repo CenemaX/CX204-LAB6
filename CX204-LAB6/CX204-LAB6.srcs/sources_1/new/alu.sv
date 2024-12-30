@@ -15,16 +15,16 @@ module alu(
     assign uop2 = $unsigned(op2);
     always@(*)begin
         case (alu_ctrl)
-            0   :   alu_result<=op1+op2;
-            8   :   alu_result<=op1-op2;
-            4   :   alu_result<=op1^op2;
-            6   :   alu_result<=op1|op2;
-            7   :   alu_result<=op1&op2;
-            1   :   alu_result<=op1<<op2[4:0];
-            5   :   alu_result<=op1>>op2[4:0];
-            13  :   alu_result<=$signed(op1) >>> op2[4:0];
-            2   :   alu_result<= (op1<op2)      ? 32'h0001 : 32'h0000;
-            3   :   alu_result<= (uop1<uop2)    ? 32'h0001 : 32'h0000;
+            0   :   alu_result<=op1+op2; //addition
+            8   :   alu_result<=op1-op2; //subtraction
+            4   :   alu_result<=op1^op2; //xor operation
+            6   :   alu_result<=op1|op2; //or operation
+            7   :   alu_result<=op1&op2; //and operation
+            1   :   alu_result<=op1<<op2[4:0]; //shift left logical
+            5   :   alu_result<=op1>>op2[4:0]; //Shift right logical
+            13  :   alu_result<=$signed(op1) >>> op2[4:0]; //Shift right arthemitic
+            2   :   alu_result<= (op1<op2)      ? 32'h0001 : 32'h0000; //Set less than
+            3   :   alu_result<= (uop1<uop2)    ? 32'h0001 : 32'h0000; //Set less than unsigned
             default: alu_result<=0;
         endcase
         
