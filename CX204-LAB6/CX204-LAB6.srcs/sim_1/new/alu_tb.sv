@@ -42,7 +42,7 @@ logic zero;
 alu alu1(.op1(op1),.op2(op2),.alu_ctrl(alu_ctrl),.alu_result(alu_result),.zero(zero));
 
 initial begin
-    #10
+    
     op1=32'b00000000000000000000000000000000;
     op2=32'b00000000000000000000000000000000;
     alu_ctrl=4'd0;
