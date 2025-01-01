@@ -20,22 +20,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 /*
 module alu_control(
-    input logic [31:0]instruction,
+    input logic func7,
+    input logic [2:0]func3,
     input logic [1:0]alu_op,
     output logic [3:0]alu_ctrl 
     );
-    
     */
 
 module alu_control_tb;
 
-    logic [31:0]instruction;
+    logic func7;
+    logic [2:0]func3;
     logic [1:0]alu_op;
     logic [3:0]alu_ctrl;
     
     
     alu_control alc1(
-        .instruction(instruction),
+        .func7(func7),
+        .func3(func3),
         .alu_op(alu_op),
         .alu_ctrl(alu_ctrl)
     );
@@ -44,31 +46,40 @@ module alu_control_tb;
     
     
     initial begin
-        instruction=32'b00000000000000000000000000000000;
+        func7=1'b0;
+        func3=3'b000;
         alu_op=2'b00;
         #10
-        instruction=32'b00000000000000000000000000000000;
+        func7=1'b0;
+        func3=3'b000;
         alu_op=2'b10;
         #10
-        instruction=32'b00000000000000000111000000000000;
+        func7=1'b0;
+        func3=3'b111;
         alu_op=2'b10;
         #10
-        instruction=32'b00000000000000000101000000000000;
+        func7=1'b0;
+        func3=3'b101;
         alu_op=2'b10;
         #10
-        instruction=32'b00000000000000000100000000000000;
+        func7=1'b0;
+        func3=3'b100;
         alu_op=2'b10;
         #10
-        instruction=32'b00000000000000000001000000000000;
+        func7=1'b0;
+        func3=3'b010;
         alu_op=2'b10;
         #10
-        instruction=32'b00000000000000000101000000000000;
+        func7=1'b0;
+        func3=3'b101;
         alu_op=2'b01;
         #10
-        instruction=32'b00000000000000000101000000000000;
+        func7=1'b0;
+        func3=3'b101;
         alu_op=2'b00;
         #10
-        instruction=32'b11111111111111111111111111111111;
+        func7=1'b1;
+        func3=3'b111;
         alu_op=2'b00;
         #10;
         $finish;
