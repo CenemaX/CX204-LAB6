@@ -2,7 +2,7 @@
 
 
 module main_control(
-    input   logic   [31:0]instruction,
+    input   logic   [6:0]opcode,
     output  logic   branch,
     output  logic   mem_write,
     output  logic   mem_to_reg,
@@ -13,7 +13,7 @@ module main_control(
     
     
     always@(*)begin
-        case(instruction[6:0])
+        case(opcode)
             7'b0110011  : begin
                 branch=0;
                 mem_write=0;
