@@ -14,7 +14,7 @@ module main_control(
     
 module main_control_tb;
 
-logic   [31:0]instruction;
+logic   [6:0]opcode;
 logic   branch;
 logic   mem_write;
 logic   mem_to_reg;
@@ -23,7 +23,7 @@ logic   [1:0]alu_op;
 logic   reg_write;
 
 main_control mc1(
-    .instruction(instruction),
+    .opcode(opcode),
     .branch(branch),
     .mem_write(mem_write),
     .mem_to_reg(mem_to_reg),
@@ -33,23 +33,23 @@ main_control mc1(
     );
 
     initial begin
-        instruction=32'b00000000000000000000000000110011;
+        opcode=7'b0110011;
         #100
-        instruction=32'b00000000000000000000000000010011;
+        opcode=7'b0010011;
         #100
-        instruction=32'b00000000000000000000000000010011;
+        opcode=7'b0010011;
         #100
-        instruction=32'b00000000000000000000000000000011;
+        opcode=7'b0000011;
         #100
-        instruction=32'b00000000000000000000000000000011;
+        opcode=7'b0000011;
         #100
-        instruction=32'b00000000000000000000000000100011;
+        opcode=7'b0100011;
         #100
-        instruction=32'b00000000000000000000000000100011;
+        opcode=7'b0100011;
         #100
-        instruction=32'b00000000000000000000000001100011;
+        opcode=7'b1100011;
         #100
-        instruction=32'b00000000000000000000000001100011;
+        opcode=7'b1100011;
         #100;
     end
 endmodule
